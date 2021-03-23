@@ -1,0 +1,43 @@
+<body>
+    <!--CONTENEDOR-->
+    <div class="container pt-4">
+        <app-header-home></app-header-home>
+
+        <app-button-home></app-button-home>
+        <main>
+                <!--NOTICIAS-->
+                <div class="row ">
+                    <!--Tittle-->
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ">
+                        <h6 class="border-bottom title-sections pb-1"><a href="#" target="_self" title="REGISTRACIÓN">REGISTRACIÓN</a></h6>
+                        <div class="container p-0 pt-2 pb-5">
+                            <!--Nota-->
+                            <div *ngIf="showForm" class="row">
+                                <div class="col-12 col-sm-12 col-md-7 offset-md-2">
+                                    <h1 class="my-3">Registración</h1>
+                                    <div *ngIf="isValidate">
+                                    <div class="checkbox mb-3">
+                                      <label>
+                                        <input type="checkbox" [(ngModel)]="isMatriculado">
+                                        Estoy matriculado en el CPAU</label>
+                                      </div>
+                                      <div *ngIf="isMatriculado">
+                                        <app-register-matriculado [emailPreregistro]="emailPreregistro" ></app-register-matriculado>
+                                      </div>
+                                      <div *ngIf="!isMatriculado">
+                                        <app-register-nomatriculado [emailPreregistro]="emailPreregistro"></app-register-nomatriculado>
+                                      </div>
+                                    </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--BLANK:fin-->
+        </main>
+        <app-publicity-home></app-publicity-home>
+        <app-footer></app-footer>
+    </div>
+    <!--CONTENEDOR: FIN	-->
+</body>
